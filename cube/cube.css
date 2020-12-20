@@ -176,9 +176,41 @@ body, html
 }
 
 
+.explode .face
+{
+	transition-timing-function: cubic-bezier(0.4,1,0,1);
+	background-color: transparent;
+}
+.explode > .front
+{
+	transform: rotateY(0deg) translateZ( 100vw );
+}
+
+.explode > .back
+{
+	transform: rotateY(180deg) translateZ( 100vw );
+}
+.explode > .top
+{
+	transform: rotateX(90deg) translateZ( 100vw );
+}
+.explode > .bottom
+{
+	transform: rotateX(-90deg) translateZ( 100vw );
+}
+.explode > .left
+{
+	transform: rotateY(-90deg) translateZ( 100vw );
+}
+.explode > .right
+{
+	transform: rotateY(90deg) translateZ( 100vw );
+}
+
+
 
 .loading {
-	transition: 0.75s;
+	transition: 0.5s;
 	opacity: 1;
 	position: fixed;
 	top: 0;

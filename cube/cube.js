@@ -3,7 +3,7 @@ function init()
 	if( settings.load ){
 		var d = document.createElement( "div" );
 		d.className = "loading";
-		d.innerHTML = '<div class = "loading"><div class = "scene"><div class = "cube"><div class = "face front ahead"><span></span></div><div class = "face back"><span></span></div><div class = "face top"><span></span></div><div class = "face left"><span></span></div><div class = "face bottom"><span></span></div><div class = "face right"><span></span></div </div></div></div>';
+		d.innerHTML = '<div class = "loading"><div class = "scene"><div class = "cube"><div class = "face front ahead"><span></span></div><div class = "face back"><span></span></div><div class = "face top"><span></span></div><div class = "face left"><span></span></div><div class = "face bottom"><span></span></div><div class = "face right"><span></span></div> </div></div></div>';
 		document.body.appendChild( d );
 		load();
 	}
@@ -12,6 +12,7 @@ function load()
 {
 	var sides = ["ff", "bkf", "tf", "lf", "btf", "rf"];
 	var i = 0;
+	var rotations = 0;
 	move();
 	setInterval( move, 800 );
 	function move()
@@ -24,13 +25,22 @@ function load()
 				document.getElementsByClassName("face")[j].classList.toggle("ahead");
 		}
 		document.getElementsByClassName("face")[i].classList.toggle("ahead");
-		document.getElementsByClassName("cube")[0].className = "cube " + sides [i];
+		if( rotations != settings.rotations )
+			document.getElementsByClassName("cube")[0].className = "cube " + sides [i];
+		else
+		{
+			document.getElementsByClassName("face")[4].classList.add("ahead");
+			document.getElementsByClassName("cube")[0].style.transform = "rotateX( 45deg) rotateY( 45deg ) rotateZ( 90deg)"
+		}
+		rotations ++;
 		i++;
+		
 	}
 	setTimeout( function(){
+		document.getElementsByClassName("cube")[0].classList.toggle("explode");
 		document.getElementsByClassName( "loading" )[0].style.opacity = "0";
-		setTimeout( function () { document.getElementsByClassName("loading")[0].style.display = "none"}, 1000 );
-	}, settings.time );
+		setTimeout( function () { document.getElementsByClassName("loading")[0].style.display = "none"}, 400 );
+	}, settings.rotations * 1000 );
 }
 init();
 document.body.onload = function()
