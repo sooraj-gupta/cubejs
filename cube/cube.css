@@ -2,8 +2,8 @@
 :root
 {
 	--size: calc( 5vw + 50px );
-	--shadowcolor:#d09f9f;
-	--lightcolor: #ffd3d3;
+	--shadowcolor:#87aa64;
+	--lightcolor: #c0ea97;
 }
 body, html
 {
@@ -14,7 +14,7 @@ body, html
 {
 	width: var(--size);
 	height: var(--size);
-	perspective: 3000px;
+	perspective: calc( var(--size) * 4 );
 }
 .cube
 {
