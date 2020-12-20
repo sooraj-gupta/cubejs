@@ -36,7 +36,8 @@ function load()
 		else
 		{
 			document.getElementsByClassName("face")[4].classList.add("ahead");
-			document.getElementsByClassName("cube")[0].style.transform = "rotateX( 45deg) rotateY( 45deg ) rotateZ( 90deg)"
+			document.getElementsByClassName("face")[5].classList.add("ahead");
+			document.getElementsByClassName("cube")[0].style.transform = "rotateX( 45deg) rotateY( 45deg ) rotateZ( 90deg)";
 		}
 		rotations ++;
 		i++;
