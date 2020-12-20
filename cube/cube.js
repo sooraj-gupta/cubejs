@@ -29,6 +29,7 @@ function load()
 	}
 	setTimeout( function(){
 		document.getElementsByClassName( "loading" )[0].style.opacity = "0";
+		setTimeout( function () { document.getElementsByClassName("loading")[0].style.display = "none"}, 1000 );
 	}, settings.time );
 }
 init();
